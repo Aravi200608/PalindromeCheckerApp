@@ -69,3 +69,12 @@
 - StackStrategy – uses LIFO Stack to check palindrome
 - DequeStrategy – uses Double Ended Queue to check palindrome
 - Data Structure: Varies per strategy
+## Use Case 13 – Performance Comparison of Palindrome Algorithms
+- Goal: Compare performance of different palindrome approaches
+- System.nanoTime() – captures execution time in nanoseconds
+- StringBuilder Algorithm – uses reverse() method
+- Char Array Algorithm – uses two pointer technique
+- Stack Algorithm – uses LIFO Stack
+- Deque Algorithm – uses Double Ended Queue
+- Recursive Algorithm – uses recursion and call stack
+- Displays execution time for each algorithm
