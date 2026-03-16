@@ -22,3 +22,11 @@
 - Pop Operation – removes characters in reverse order
 - Reversal Logic – stack naturally reverses elements
 - Data Structure: Stack
+## Use Case 6 – Queue + Stack Based Palindrome Check
+
+- Goal: Demonstrate FIFO vs LIFO using Queue and Stack
+- Queue follows FIFO – First In First Out
+- Stack follows LIFO – Last In First Out
+- Enqueue and Dequeue – insert and remove from queue
+- Compare dequeue vs pop to validate palindrome
+- Data Structures: Queue, Stack
