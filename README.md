@@ -55,3 +55,9 @@
 - toLowerCase() – converts string to lowercase for case-insensitive check
 - Regular Expressions – used to clean the input string
 - Data Structure: String / Array
+## Use Case 11 – Object-Oriented Palindrome Service
+- Goal: Encapsulate palindrome logic in a class
+- Encapsulation – palindrome logic wrapped inside PalindromeChecker class
+- Single Responsibility Principle – class only handles palindrome checking
+- checkPalindrome() method – exposed to validate any string
+- Data Structure: Internal Stack / Array
