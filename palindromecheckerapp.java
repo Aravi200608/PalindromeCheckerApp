@@ -1,31 +1,27 @@
-package PalindromeCheckerApp;
-
-import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @author Aravina
- * @version 4.0
- * Use Case 4: Character Array Based Palindrome Check
+ * @version 5.0
+ * Use Case 5: Stack Based Palindrome Check
  */
 public class palindromecheckerapp {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-        char[] chars = input.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        boolean isPalindrome = true;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+        String word = "madam";
+
+        Stack<Character> stack = new Stack<>();
+        for (char c : word.toCharArray()) {
+            stack.push(c);
         }
-        System.out.println("Input : " + input);
+
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed += stack.pop();
+        }
+
+        boolean isPalindrome = word.equals(reversed);
+        System.out.println("Input : " + word);
+        System.out.println("Reversed : " + reversed);
         System.out.println("Is Palindrome? : " + isPalindrome);
-        scanner.close();
     }
 }
