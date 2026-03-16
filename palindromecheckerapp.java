@@ -1,44 +1,76 @@
+import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @author Aravina
- * @version 11.0
- * Use Case 11: Object-Oriented Palindrome Service
+ * @version 12.0
+ * Use Case 12: Strategy Pattern for Palindrome Algorithms
  */
 
-// PalindromeChecker class - Encapsulates palindrome logic
-class PalindromeChecker {
+// Strategy Interface
+interface PalindromeStrategy {
+    boolean checkPalindrome(String word);
+}
 
-    // Single Responsibility - only checks palindrome
+// Stack Strategy - LIFO
+class StackStrategy implements PalindromeStrategy {
     public boolean checkPalindrome(String word) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : word.toCharArray()) {
+            stack.push(c);
+        }
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed += stack.pop();
+        }
+        return word.equals(reversed);
+    }
+}
 
-        // Normalize - remove spaces and lowercase
-        String normalized = word.replaceAll("\\s+", "").toLowerCase();
+// Deque Strategy - Double Ended Queue
+class DequeStrategy implements PalindromeStrategy {
+    public boolean checkPalindrome(String word) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (char c : word.toCharArray()) {
+            deque.addLast(c);
+        }
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 
-        // Reverse using StringBuilder
-        String reversed = new StringBuilder(normalized).reverse().toString();
+// Context class - Injects strategy at runtime
+class PalindromeContext {
+    private PalindromeStrategy strategy;
 
-        // Return result
-        return normalized.equals(reversed);
+    // Inject strategy
+    public PalindromeContext(PalindromeStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    // Execute strategy
+    public boolean execute(String word) {
+        return strategy.checkPalindrome(word);
     }
 }
 
 public class palindromecheckerapp {
     public static void main(String[] args) {
+        String word = "madam";
 
-        // Create PalindromeChecker object
-        PalindromeChecker checker = new PalindromeChecker();
+        // Using Stack Strategy
+        PalindromeContext context1 = new PalindromeContext(new StackStrategy());
+        System.out.println("Input : " + word);
+        System.out.println("Stack Strategy - Is Palindrome? : " + context1.execute(word));
 
-        // Test words
-        String word1 = "madam";
-        String word2 = "hello";
-        String word3 = "A man a plan a canal Panama";
-
-        System.out.println("Input : " + word1);
-        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word1));
-
-        System.out.println("Input : " + word2);
-        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word2));
-
-        System.out.println("Input : " + word3);
-        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word3));
+        // Using Deque Strategy
+        PalindromeContext context2 = new PalindromeContext(new DequeStrategy());
+        System.out.println("Input : " + word);
+        System.out.println("Deque Strategy - Is Palindrome? : " + context2.execute(word));
     }
 }
