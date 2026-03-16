@@ -1,25 +1,44 @@
 /**
  * @author Aravina
- * @version 10.0
- * Use Case 10: Case-Insensitive and Space-Ignored Palindrome
+ * @version 11.0
+ * Use Case 11: Object-Oriented Palindrome Service
  */
-public class palindromecheckerapp {
 
-    public static void main(String[] args) {
-        String word = "A man a plan a canal Panama";
+// PalindromeChecker class - Encapsulates palindrome logic
+class PalindromeChecker {
 
-        // Normalize - remove spaces and convert to lowercase
+    // Single Responsibility - only checks palindrome
+    public boolean checkPalindrome(String word) {
+
+        // Normalize - remove spaces and lowercase
         String normalized = word.replaceAll("\\s+", "").toLowerCase();
 
-        // Reverse normalized string
+        // Reverse using StringBuilder
         String reversed = new StringBuilder(normalized).reverse().toString();
 
-        // Compare
-        boolean isPalindrome = normalized.equals(reversed);
+        // Return result
+        return normalized.equals(reversed);
+    }
+}
 
-        System.out.println("Input : " + word);
-        System.out.println("Normalized : " + normalized);
-        System.out.println("Reversed : " + reversed);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+public class palindromecheckerapp {
+    public static void main(String[] args) {
+
+        // Create PalindromeChecker object
+        PalindromeChecker checker = new PalindromeChecker();
+
+        // Test words
+        String word1 = "madam";
+        String word2 = "hello";
+        String word3 = "A man a plan a canal Panama";
+
+        System.out.println("Input : " + word1);
+        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word1));
+
+        System.out.println("Input : " + word2);
+        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word2));
+
+        System.out.println("Input : " + word3);
+        System.out.println("Is Palindrome? : " + checker.checkPalindrome(word3));
     }
 }
