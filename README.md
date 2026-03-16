@@ -34,3 +34,10 @@
 - Front and Rear Access – direct comparison of first and last characters
 - Optimized – no need for separate reversal data structures
 - Data Structure: Deque
+## Use Case 8 – Linked List Based Palindrome Checker
+- Goal: Check palindrome using singly linked list
+- Singly Linked List – elements connected using node references
+- Fast and Slow Pointer – finds middle of linked list efficiently
+- In-Place Reversal – reverses second half without extra memory
+- Compare both halves to validate palindrome
+- Data Structure: Singly Linked List
