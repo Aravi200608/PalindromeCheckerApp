@@ -15,3 +15,10 @@
 - Uses two-pointer technique (start & end)
 - Compares characters efficiently
 - Data Structure: char[]
+## Use Case 5 – Stack Based Palindrome Check
+
+- Goal: Use stack to reverse characters and validate palindrome
+- Push Operation – inserts characters into the stack
+- Pop Operation – removes characters in reverse order
+- Reversal Logic – stack naturally reverses elements
+- Data Structure: Stack
