@@ -41,3 +41,10 @@
 - In-Place Reversal – reverses second half without extra memory
 - Compare both halves to validate palindrome
 - Data Structure: Singly Linked List
+## Use Case 9 – Recursive Palindrome Checker
+- Goal: Check palindrome using recursion
+- Recursion – method calls itself to solve smaller subproblems
+- Base Condition – prevents infinite recursion and terminates calls
+- Call Stack – manages method calls during recursion
+- Compares start and end characters recursively
+- Data Structure: Call Stack
