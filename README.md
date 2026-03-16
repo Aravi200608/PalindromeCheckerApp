@@ -61,3 +61,11 @@
 - Single Responsibility Principle – class only handles palindrome checking
 - checkPalindrome() method – exposed to validate any string
 - Data Structure: Internal Stack / Array
+## Use Case 12 – Strategy Pattern for Palindrome Algorithms
+- Goal: Choose a palindrome algorithm dynamically
+- Interface – PalindromeStrategy defines the contract
+- Polymorphism – StackStrategy and DequeStrategy implement the interface
+- Strategy Pattern – algorithm injected at runtime via PalindromeContext
+- StackStrategy – uses LIFO Stack to check palindrome
+- DequeStrategy – uses Double Ended Queue to check palindrome
+- Data Structure: Varies per strategy
