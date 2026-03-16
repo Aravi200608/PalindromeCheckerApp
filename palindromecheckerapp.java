@@ -1,28 +1,66 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * @author Aravina
- * @version 7.0
- * Use Case 7: Deque Based Optimized Palindrome Checker
+ * @version 8.0
+ * Use Case 8: Linked List Based Palindrome Checker
  */
 public class palindromecheckerapp {
+
+    // Node class for Singly Linked List
+    static class Node {
+        char data;
+        Node next;
+        Node(char data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
     public static void main(String[] args) {
         String word = "madam";
 
-        // Insert characters into Deque
-        Deque<Character> deque = new ArrayDeque<>();
+        // Convert string to linked list
+        Node head = null;
+        Node tail = null;
         for (char c : word.toCharArray()) {
-            deque.addLast(c);
+            Node newNode = new Node(c);
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
         }
 
-        // Compare front and rear elements
+        // Find middle using fast and slow pointer
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse second half
+        Node prev = null;
+        Node curr = slow;
+        while (curr != null) {
+            Node nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+
+        // Compare both halves
+        Node left = head;
+        Node right = prev;
         boolean isPalindrome = true;
-        while (deque.size() > 1) {
-            if (deque.removeFirst() != deque.removeLast()) {
+        while (right != null) {
+            if (left.data != right.data) {
                 isPalindrome = false;
                 break;
             }
+            left = left.next;
+            right = right.next;
         }
 
         System.out.println("Input : " + word);
