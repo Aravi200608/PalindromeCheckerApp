@@ -48,3 +48,10 @@
 - Call Stack – manages method calls during recursion
 - Compares start and end characters recursively
 - Data Structure: Call Stack
+## Use Case 10 – Case-Insensitive and Space-Ignored Palindrome
+- Goal: Ignore spaces and case while checking palindrome
+- String Preprocessing – normalize string before checking
+- replaceAll() – removes all spaces using regular expression
+- toLowerCase() – converts string to lowercase for case-insensitive check
+- Regular Expressions – used to clean the input string
+- Data Structure: String / Array
