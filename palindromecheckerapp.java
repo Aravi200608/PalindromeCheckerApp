@@ -4,16 +4,26 @@ import java.util.Scanner;
 
 /**
  * @author Aravina
- * @version 3.0
- * Use Case 3: User Input Palindrome Validation
+ * @version 4.0
+ * Use Case 4: Character Array Based Palindrome Check
  */
 public class palindromecheckerapp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
-        String reversed = new StringBuilder(input).reverse().toString();
-        boolean isPalindrome = input.equals(reversed);
+        char[] chars = input.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
         scanner.close();

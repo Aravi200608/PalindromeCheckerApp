@@ -10,3 +10,8 @@
 - Allows the user to enter a string
 - Uses StringBuilder reverse() method
 - Checks whether it is a palindrome
+## Use Case 4 – Character Array Based Palindrome Check
+- Converts string to char[]
+- Uses two-pointer technique (start & end)
+- Compares characters efficiently
+- Data Structure: char[]
